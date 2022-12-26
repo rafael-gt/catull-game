@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class  hearts : MonoBehaviour
+public class Kiss : MonoBehaviour
 {
-    //Keep track of total picked coins (Since the value is static, it can be accessed at "SC_2DCoin.totalCoins" from any script)
-    public static int totalHearts = 0; 
+    public int multiplier = 1;
 
     void Awake()
     {
@@ -19,7 +18,7 @@ public class  hearts : MonoBehaviour
         if (c2d.CompareTag("Player"))
         {
             //Add coin to counter
-            totalHearts++;
+            hearts.totalHearts += multiplier;
             //Test: Print total number of coins
             Debug.Log("You currently have " + hearts.totalHearts + " Tokens.");
             //Destroy coin
