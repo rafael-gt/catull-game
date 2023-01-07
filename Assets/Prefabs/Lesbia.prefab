@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1435951790105708192}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Lesbia
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

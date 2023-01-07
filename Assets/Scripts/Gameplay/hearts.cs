@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class  hearts : MonoBehaviour
 {
+    [SerializeField]
+    public int Heartincrement = 0;
     //Keep track of total picked coins (Since the value is static, it can be accessed at "SC_2DCoin.totalCoins" from any script)
     public static int totalHearts = 0; 
 
@@ -19,7 +21,7 @@ public class  hearts : MonoBehaviour
         if (c2d.CompareTag("Player"))
         {
             //Add coin to counter
-            totalHearts++;
+            totalHearts+= Heartincrement;
             //Test: Print total number of coins
             Debug.Log("You currently have " + hearts.totalHearts + " Tokens.");
             //Destroy coin

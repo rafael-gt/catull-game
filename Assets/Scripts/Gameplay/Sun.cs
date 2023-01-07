@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using System;
 
 public class Sun : MonoBehaviour
 {
     [SerializeField]
-    protected Transform trackingTarget;
+    public Transform trackingTarget;
+
+    
 
     public GameObject sun_object;
 
     float xOffset = 0f;
     float yOffset = 0f;
-    int Radius = 20;
     int length = 100;
     int Alt = 7;
     // Start is called before the first frame update
@@ -24,25 +26,29 @@ public class Sun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
-        if(trackingTarget.position.x < length/2 + 20)
-            sun_object.GetComponent<Renderer>().enabled = true;
-        else
-            sun_object.GetComponent<Renderer>().enabled = false;
-
-        /*if (trackingTarget.position.x < 2*Radius && trackingTarget.position.x >=0)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            yOffset = (float)(Math.Pow((Math.Pow(Radius, 2) - Math.Pow(trackingTarget.position.x - Radius, 2)), 0.5) / (Radius / 5));
+            yOffset = (float)(Alt * Math.Sin(2 * Math.PI * trackingTarget.position.x / (length)));
+            if(trackingTarget.position.x < length/2 + 20)
+                sun_object.GetComponent<Renderer>().enabled = true;
+            else
+                sun_object.GetComponent<Renderer>().enabled = false;
         }
-        else
+        else if (SceneManager.GetActiveScene().buildIndex == 3)
         {
-            yOffset = -70;
-        }*/
+            if (trackingTarget.position.x < 32)
+                sun_object.GetComponent<Renderer>().enabled = true;
+            else
+                sun_object.GetComponent<Renderer>().enabled = false;
 
-        yOffset = (float)(Alt * Math.Sin(2 * Math.PI * trackingTarget.position.x / (length)));
+            yOffset = 5;
+        }
 
 
 
-        transform.position = new Vector3(trackingTarget.position.x + xOffset, yOffset, transform.position.z);
+
+            transform.position = new Vector3(trackingTarget.position.x + xOffset, yOffset, transform.position.z);
     }
 }

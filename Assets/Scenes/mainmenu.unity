@@ -568,7 +568,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1016115366}
         m_TargetAssemblyTypeName: MenuEvents, Assembly-CSharp
         m_MethodName: LoadLevel
         m_Mode: 3
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 146771437}
+      - m_Target: {fileID: 1016115366}
         m_TargetAssemblyTypeName: MenuEvents, Assembly-CSharp
         m_MethodName: LoadLevel
         m_Mode: 3
@@ -1344,7 +1344,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1016115361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9c37c60b3685f2478e1408488b9e13a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b91591666fc8a94b9d4c8cc22ce2e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1399621289

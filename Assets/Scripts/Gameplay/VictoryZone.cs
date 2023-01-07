@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class VictoryZone : MonoBehaviour
 {
+    private System.Random rnd = new System.Random();
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         //collider.transform.position = new Vector3(0, 0, 0);
-        hearts.totalHearts = 9999;
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            hearts.totalHearts = rnd.Next(1, 100000);
+        }
+        
 
         StartCoroutine(DoAfterDelay(2)); 
     }
@@ -17,13 +23,17 @@ public class VictoryZone : MonoBehaviour
     {
         //Print the time of when the function is first called.
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            hearts.totalHearts = rnd.Next(1, 100000);
+        }
 
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(time);
 
         int index =  SceneManager.GetActiveScene().buildIndex;
 
-        index = (index + 1) % 3;
+        index = (index + 1) % 4;
 
         SceneManager.LoadScene(index);
         

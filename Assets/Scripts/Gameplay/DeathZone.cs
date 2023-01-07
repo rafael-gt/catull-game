@@ -6,7 +6,10 @@ public class DeathZone : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collider)
     {
-        collider.transform.position = new Vector3(0, 0, 0);
-        hearts.totalHearts = 0;
+        if (collider.CompareTag("Player"))
+        {
+            collider.transform.position = new Vector3(0, 0, 0);
+            hearts.totalHearts = 0;
+        }
     }
 }

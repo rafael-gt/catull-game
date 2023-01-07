@@ -12,7 +12,6 @@ public class Moon : MonoBehaviour
 
     float xOffset = 0f;
     float yOffset = 0f;
-    int Radius = 20;
     int length = 100;
     int Alt = 7;
     // Start is called before the first frame update
@@ -28,14 +27,6 @@ public class Moon : MonoBehaviour
             moon_object.GetComponent<Renderer>().enabled = false;
         else
             moon_object.GetComponent<Renderer>().enabled = true;
-        /*if (trackingTarget.position.x < 2*Radius && trackingTarget.position.x >=0)
-        {
-            yOffset = (float)(Math.Pow((Math.Pow(Radius, 2) - Math.Pow(trackingTarget.position.x - Radius, 2)), 0.5) / (Radius / 5));
-        }
-        else
-        {
-            yOffset = -70;
-        }*/
 
         yOffset = (float)(Alt * -Math.Sin(2 * Math.PI * trackingTarget.position.x / (length)));
 
