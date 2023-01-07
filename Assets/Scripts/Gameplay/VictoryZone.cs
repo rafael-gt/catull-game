@@ -33,7 +33,7 @@ public class VictoryZone : MonoBehaviour
 
         int index =  SceneManager.GetActiveScene().buildIndex;
 
-        index = (index + 1) % 4;
+        index = (index + 1) % 6;
 
         SceneManager.LoadScene(index);
         
