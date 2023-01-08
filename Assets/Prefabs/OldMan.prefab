@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8961631979906493237}
   - component: {fileID: 4939335367008904852}
-  - component: {fileID: 2133742879839454984}
+  - component: {fileID: 7594208907568200024}
   m_Layer: 0
   m_Name: oldmanspb
   m_TagString: Untagged
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2133742879839454984
+--- !u!114 &7594208907568200024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,4 +129,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bcb11474e808e49abeccafef8b1eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oldman: {fileID: 8961631979906493237}
+  oldman: {fileID: 7132645463133728073}
