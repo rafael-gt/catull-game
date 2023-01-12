@@ -14,7 +14,6 @@ public class VictoryZone : MonoBehaviour
         {
             hearts.totalHearts = rnd.Next(1, 100000);
         }
-        
 
         StartCoroutine(DoAfterDelay(2)); 
     }
