@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class OldMan : MonoBehaviour
 {
-    int count = 0;
+    float count = 0;
     bool b  = false;
 
     [SerializeField]
     Transform oldman;
 
+    new Vector3 target_pos;
+    const float speed = 1.5F;
+    const float rotation_speed = 50.0F;
+
+    void Start()
+    {
+        target_pos = new Vector3(oldman.position.x, 500, 100);
+    }
 
     // Update is called once per frame
     void Update()
@@ -18,14 +26,15 @@ public class OldMan : MonoBehaviour
             flyAway();
     }
 
-    private void flyAway()
+    void flyAway()
     {
-        if(b == false)
-            count++;
+        Debug.Log(rotation_speed);
+
+        count += rotation_speed * Time.deltaTime;
             
-        b  = !b;
-        
         transform.eulerAngles = new Vector3(0, 0, count);
-        transform.position = new Vector3(oldman.position.x, count/50, oldman.position.z);
+
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, target_pos, step);
     }
 }
