@@ -6,6 +6,7 @@ public class OldMan : MonoBehaviour
 {
     float count = 0;
     bool b  = false;
+    bool flag = false;
 
     [SerializeField]
     Transform oldman;
@@ -22,7 +23,10 @@ public class OldMan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hearts.totalHearts >= 3300)
+        if (hearts.totalHearts >= 3300)
+            flag = true;
+
+        if (flag)
             flyAway();
     }
 
@@ -36,5 +40,9 @@ public class OldMan : MonoBehaviour
 
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target_pos, step);
+        if(transform.position == target_pos)
+        {
+            flag = false;
+        }
     }
 }

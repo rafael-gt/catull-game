@@ -6,7 +6,12 @@ using UnityEngine;
 public class PauseEvent : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
+    AudioSource audioSource;
     // Start is called before the first frame update
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void Pause()
     {
         pauseMenu.SetActive(true);
@@ -23,5 +28,14 @@ public class PauseEvent : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(sceneID);
+    }
+
+    public void Mute()
+    {
+        audioSource.mute = true;
+    }
+    public void Speaker()
+    {
+        audioSource.mute = false;
     }
 }
