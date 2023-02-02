@@ -7,6 +7,8 @@ public class VictoryZone : MonoBehaviour
 {
     private System.Random rnd = new System.Random();
 
+    public AudioSource audio_source; 
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         //collider.transform.position = new Vector3(0, 0, 0);
@@ -15,6 +17,8 @@ public class VictoryZone : MonoBehaviour
             hearts.totalHearts = rnd.Next(1, 100000);
         }
 
+        audio_source.Play();
+        
         StartCoroutine(DoAfterDelay(2)); 
     }
 

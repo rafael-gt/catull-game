@@ -6,6 +6,8 @@ public class Kiss : MonoBehaviour
 {
     public int multiplier = 1;
 
+    public AudioSource audio_source; 
+
     void Awake()
     {
         //Make Collider2D as trigger 
@@ -20,9 +22,29 @@ public class Kiss : MonoBehaviour
             //Add coin to counter
             hearts.totalHearts += multiplier;
             //Test: Print total number of coins
+            audio_source.Play();
             Debug.Log("You currently have " + hearts.totalHearts + " Tokens.");
-            //Destroy coin
-            Destroy(gameObject);
+
+            //Destroy heart
+            StartCoroutine(DoAfterDelay(1));
+
         }
+    }
+
+    IEnumerator DoAfterDelay(float time)
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        transform.position = new Vector3(-1000, -1000, -1000);
+
+        //yield on a new YieldInstruction that waits for "time" seconds.
+        yield return new WaitForSeconds(time);
+
+        // Destroy heart
+        Destroy(gameObject);
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 }

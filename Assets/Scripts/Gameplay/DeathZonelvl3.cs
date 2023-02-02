@@ -7,6 +7,9 @@ public class DeathZonelvl3 : MonoBehaviour
     [SerializeField]
     private Transform player;
     private bool checkpoint = false;
+
+    public AudioSource audio_source; 
+
     void Start()
     {
     }
@@ -14,6 +17,8 @@ public class DeathZonelvl3 : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
+            audio_source.Play();
+            
             if (player.position.x > 40)
             {
                 checkpoint = true;

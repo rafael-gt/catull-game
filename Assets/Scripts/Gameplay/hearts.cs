@@ -9,6 +9,8 @@ public class  hearts : MonoBehaviour
     //Keep track of total picked coins (Since the value is static, it can be accessed at "SC_2DCoin.totalCoins" from any script)
     public static int totalHearts = 0; 
 
+    public AudioSource audio_source; 
+
     void Awake()
     {
         //Make Collider2D as trigger 
@@ -24,8 +26,26 @@ public class  hearts : MonoBehaviour
             totalHearts+= Heartincrement;
             //Test: Print total number of coins
             Debug.Log("You currently have " + hearts.totalHearts + " Tokens.");
+            audio_source.Play();
             //Destroy coin
-            Destroy(gameObject);
+            StartCoroutine(DoAfterDelay(1));
         }
+    }
+
+    IEnumerator DoAfterDelay(float time)
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        transform.position = new Vector3(-1000, -1000, -1000);
+
+        //yield on a new YieldInstruction that waits for "time" seconds.
+        yield return new WaitForSeconds(time);
+
+        // Destroy heart
+        Destroy(gameObject);
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 }

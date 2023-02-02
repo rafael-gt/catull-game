@@ -78,6 +78,7 @@ namespace Platformer.Mechanics
             switch (jumpState)
             {
                 case JumpState.PrepareToJump:
+                    audioSource.PlayOneShot(jumpAudio, 0.05F);
                     jumpState = JumpState.Jumping;
                     jump = true;
                     stopJump = false;
